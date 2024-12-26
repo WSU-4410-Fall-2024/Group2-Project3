@@ -1,0 +1,151 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Find One</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        /* Overall page styling */
+        body {
+            font-family: 'Arial', sans-serif;
+           
+            background-color: #f4f7fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header and navigation styling */
+        header {
+            background-color: #5ab9ea;
+            color: white;
+            padding: 15px 0;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        header nav a:hover {
+            background-color: #4a9fd7;
+            border-radius: 5px;
+        }
+
+        header nav span {
+            font-size: 16px;
+            margin-right: 15px;
+        }
+
+        /* Main content section */
+        section {
+            padding: 50px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Colorful lines for added visibility */
+        .colored-line {
+            height: 5px;
+            margin: 30px 0;
+            border: none;
+        }
+
+        .line-blue {
+            background-color: #5ab9ea;
+        }
+
+        .line-green {
+            background-color: #7cdb7f;
+        }
+
+        .line-purple {
+            background-color: #9b5de5;
+        }
+
+        /* Footer section */
+        footer {
+            background-color: #5ab9ea;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 14px;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'home' %}">Home</a>
+            {% if user.is_authenticated %}
+                <span>Welcome, {{ user.username }}</span>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <section>
+        <h1>About Us</h1>
+        <p>We are a team of developers passionate about helping you find the perfect gift for any occasion. Our website, Find One, offers personalized gift suggestions based on your preferences and the person you're shopping for. Whether you're looking for gifts for birthdays, anniversaries, or special celebrations, we make it easier than ever to discover something unique and thoughtful!</p>
+        
+        <div class="colored-line line-blue"></div>
+        
+        <p>Our mission is to create a simple and enjoyable way for people to find gifts that truly resonate with their loved ones. With our innovative algorithms and personalized quizzes, we help users pick gifts that are just right for every occasion.</p>
+        
+        <div class="colored-line line-green"></div>
+
+        <p>At Find One, we believe that thoughtful gifting should be easy, fun, and meaningful. Our goal is to make your gift-giving experience as seamless as possible. Whether you're a seasoned gift giver or new to the process, we're here to help you every step of the way!</p>
+        
+        <div class="colored-line line-purple"></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Find One. All rights reserved.</p>
+    </footer>
+</body>
+</html>
