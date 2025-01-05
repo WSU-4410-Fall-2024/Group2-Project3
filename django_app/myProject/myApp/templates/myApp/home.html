@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find One - Gift Ideas</title>
+    
+    <!-- Move styles to a separate static/css/style.css file -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    
+    <style>
+        /* Fallback styles in case external CSS fails to load */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ff 100%);
+        }
+
+        /* Animation container */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none; /* Prevent interference with clicks */
+        }
+
+        /* Gift box animation */
+        .gift {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #ff7f7f;
+            border-radius: 4px;
+            animation: float 6s infinite;
+            opacity: 0.6;
+        }
+
+        .gift::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 8px;
+            background: #ff9999;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .gift::after {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 8px;
+            background: #ff9999;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Sparkle animation */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #FFD700;
+            border-radius: 50%;
+            animation: sparkle 4s infinite;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #5ab9ea;
+            color: white;
+            padding: 15px 0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        header nav a:hover {
+            background-color: #4a9fd7;
+            border-radius: 5px;
+            transform: translateY(-2px);
+        }
+
+        /* Main content styles */
+        section {
+            width: 90%;
+            max-width: 600px;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin: 100px auto 50px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            font-size: 36px;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 700;
+            background: linear-gradient(45deg, #f0a500, #ff7f00);
+            padding: 15px;
+            border-radius: 10px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+            font-size: 20px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .quiz-link {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            background: linear-gradient(45deg, #5ab9ea, #4a9fd7);
+            padding: 15px 30px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(90, 185, 234, 0.3);
+        }
+
+        .quiz-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(90, 185, 234, 0.4);
+            background: linear-gradient(45deg, #4a9fd7, #3d8abf);
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #5ab9ea;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 14px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Animation keyframes */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-100px) rotate(180deg);
+            }
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation" id="bgAnimation"></div>
+
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            {% if user.is_authenticated %}
+                <span>Welcome, {{ user.username }}</span>
+                <a href="/logout/">Logout</a>
+            {% else %}
+                <a href="/login/">Login</a>
+            {% endif %}
+            <a href="/about-us/">About Us</a>
+            <a href="/review-us/">Review Us</a>
+        </nav>
+    </header>
+
+    <section>
+        <h1>Welcome to Find One</h1>
+        <p>Discover the perfect gift ideas for any occasion!</p>
+        {% if user.is_authenticated %}
+            <a href="/quiz/" class="quiz-link">Take the Gift Quiz</a>
+        {% else %}
+            <p>Please <a href="/login/" class="quiz-link">login</a> to take the quiz.</p>
+        {% endif %}
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Find One. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Create background elements when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const bgAnimation = document.getElementById('bgAnimation');
+            
+            // Create gifts
+            for (let i = 0; i < 15; i++) {
+                createGift();
+            }
+            
+            // Create sparkles
+            for (let i = 0; i < 30; i++) {
+                createSparkle();
+            }
+            
+            // Recreate elements periodically to ensure animations stay fresh
+            setInterval(function() {
+                if (bgAnimation.children.length < 45) { // 15 gifts + 30 sparkles
+                    createGift();
+                    createSparkle();
+                }
+            }, 6000);
+
+            function createGift() {
+                const gift = document.createElement('div');
+                gift.className = 'gift';
+                gift.style.left = `${Math.random() * 100}%`;
+                gift.style.top = `${Math.random() * 100}%`;
+                gift.style.animationDelay = `${Math.random() * 5}s`;
+                bgAnimation.appendChild(gift);
+                
+                // Remove the gift after animation
+                setTimeout(() => gift.remove(), 6000);
+            }
+
+            function createSparkle() {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = `${Math.random() * 100}%`;
+                sparkle.style.top = `${Math.random() * 100}%`;
+                sparkle.style.animationDelay = `${Math.random() * 4}s`;
+                bgAnimation.appendChild(sparkle);
+                
+                // Remove the sparkle after animation
+                setTimeout(() => sparkle.remove(), 4000);
+            }
+        });
+    </script>
+</body>
+</html>

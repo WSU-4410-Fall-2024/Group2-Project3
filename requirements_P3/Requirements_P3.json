@@ -1,0 +1,142 @@
+{
+    "9369642678060673853": [
+        "12/07/24",
+        "Inception",
+        "CORE",
+        "Tamanna Gaur",
+        "Homepage Layout",
+        "Establish a welcoming and user-friendly entry point.",
+        "End users",
+        "Tamanna Gaur-12/07/24"
+    ],
+    "9375240831067543192": [
+        "12/07/24",
+        "Inception",
+        "CORE",
+        "Tamanna Gaur",
+        "Quiz Interface Design",
+        "Design an intuitive quiz interface to gather gift preferences.",
+        "End users, designers",
+        "Tamanna Gaur-12/07/24"
+    ],
+    "9369642678060673854": [
+        "12/07/24",
+        "Inception",
+        "CORE",
+        "Tamanna Gaur",
+        "User Authentication",
+        "Enable secure sign-up and login functionality to store user preferences and allow personalized suggestions.",
+        "End users, Project Manager",
+        "Tamanna Gaur-12/07/24"
+    ],
+    "9375240831067543193": [
+        "12/07/24",
+        "Elaboration",
+        "CORE",
+        "Tamanna Gaur",
+        "Code for Gift Suggestions",
+        "Ask relevant questions, and generates gift ideas based on preferences.",
+        "End users",
+        "Tamanna Gaur-12/07/24"
+    ],
+    "9369642678060673855": [
+        "12/07/24",
+        "Elicitation",
+        "CORE",
+        "Tamanna Gaur",
+        "Filtering Options",
+        "Enable filtering of gift suggestions by budget, store preferences, and occasion type for better results.",
+        "End users, QA Team",
+        "Tamanna Gaur-12/07/24"
+    ],
+    "9375240831067543194": [
+        "12/07/24",
+        "Specification",
+        "CORE",
+        "Tamanna Gaur",
+        "Integration with Online Stores",
+        "Connect to APIs of stores like Amazon, Walmart, and Target to fetch live data for suggestions.",
+        "Developers, Vendors",
+        "Tamanna Gaur-12/07/24"
+    ],
+    "9369642678060673856": [
+        "12/11/24",
+        "Validation",
+        "CORE",
+        "Tamanna Gaur",
+        "Price Filter",
+        "Enable users to filter gifts within specific price ranges to fit their budget constraints.",
+        "End users, QA Team",
+        "Tamanna Gaur-12/11/24"
+    ],
+    "9375240831067543195": [
+        "12/11/24",
+        "Management",
+        "NER",
+        "Nayem Khan",
+        "Feedback and Rating System",
+        "Allow users to review and rate website suggestions, improving future recommendations.",
+        "End users, Support Team",
+        "Nayem Khan-12/11/24"
+    ],
+    "9369642678060673857": [
+        "12/11/24",
+        "Inception",
+        "CORE",
+        "Nayem Khan",
+        "Question-Based Quiz",
+        "Implement a quiz for collecting preferences about the recipient to personalize suggestions.",
+        "End users, Development Team",
+        "Nayem Khan-12/11/24"
+    ],
+    "9375240831067543196": [
+        "12/11/24",
+        "Elaboration",
+        "CORE",
+        "Nayem Khan",
+        "User Data Storage",
+        "Store user responses to reuse for future suggestions and avoid repetitive questioning.",
+        "Database Team, QA Team",
+        "Nayem Khan-12/11/24"
+    ],
+    "9369642678060673858": [
+        "12/11/24",
+        "Specification",
+        "CORE",
+        "Nayem Khan",
+        "Welcome email",
+        "So end users have the verification of our website.",
+        "End users, QA Team",
+        "Nayem Khan-12/11/24"
+    ],
+    "9375240831067543197": [
+        "12/11/24",
+        "Inception",
+        "CORE",
+        "Nayem Khan",
+        "Budget Recommendations",
+        "Recommend budget ranges based on user preferences for gift selection.",
+        "End users, Marketing Team",
+        "Nayem Khan-12/11/24"
+    ],
+    "9369642678060673859": [
+        "12/23/24",
+        "Validation",
+        "CORE",
+        "Tamanna Gaur",
+        "Search Functionality",
+        "Use a search bar instead of store APIs.",
+        "Backend Development",
+        "Tamanna Gaur-12/23/24"
+    ],
+    "9375240831067543198": [
+        "12/23/24",
+        "Inception",
+        "CORE",
+        "Tamanna Gaur",
+        "Budget Recommendations",
+        "Recommend budget ranges based on user preferences for gift selection.",
+        "End users, Marketing Team",
+        "Tamanna Gaur-12/23/24"
+    ]
+}

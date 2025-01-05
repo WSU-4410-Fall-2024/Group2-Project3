@@ -1,0 +1,353 @@
+ <!-- {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Quiz - Find One</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        nav span {
+            margin-right: 15px;
+        }
+        section {
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'home' %}">Home</a>
+            {% if user.is_authenticated %}
+                <span>Welcome, {{ user.username }}</span>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <section>
+        <h1>Gift Quiz</h1>
+
+        <form method="POST">   
+
+        
+            {% csrf_token %}
+            <label for="recipient">Who are you shopping for?</label>
+            <select name="recipient" id="recipient" required>
+                <option value="mom">Mom</option>
+                <option value="dad">Dad</option>
+                <option value="grandmother">Grandmother</option>
+                <option value="fiance">Fiance</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="gender">What is their gender identity?</label>
+            <select name="gender" id="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="age">What is their age?</label>
+            <input type="number" name="age" id="age" required>
+
+            <label for="occasion">What is the occasion?</label>
+            <select name="occasion" id="occasion" required>
+                <option value="birthday">Birthday</option>
+                <option value="valentine">Valentine's Day</option>
+                <option value="holiday">Holiday</option>
+                <option value="anniversary">Anniversary</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="weekend_activities">What do they do on weekends?</label>
+            <select name="weekend_activities" id="weekend_activities">
+                <option value="playing_games">Playing Games</option>
+                <option value="art_project">Working on an Art Project</option>
+                <option value="gardening">Gardening</option>
+                <option value="working_out">Working Out</option>
+                <option value="hanging_out_friends">Hanging Out with Friends</option>
+                <option value="game_board">Board Games</option>
+                <option value="watching_movies">Watching Movies</option>
+                <option value="vacation">Vacation</option>
+                <option value="other">Other</option>
+            </select>
+
+
+            <label for="stores">Preferred stores (e.g., Amazon, Walmart, Target):</label>
+            <select name="stores" id="stores" required>
+                <option value="amazon">Amazon</option>
+                <option value="walmart">Walmart</option>
+                <option value="target">Target</option>
+                <option value="other">Other</option>
+            </select>
+
+            <button type="submit">Find Gift</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Find One. All rights reserved.</p>
+    </footer>
+</body>
+</html> 
+ -->
+
+
+
+
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Quiz - Find One</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        nav span {
+            margin-right: 15px;
+        }
+        section {
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+    <script>
+        function openGiftURL(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get form values
+           // const recipient = document.getElementById("recipient").value;
+           // const gender = document.getElementById("gender").value;
+           // const age = document.getElementById("age").value;
+           // const occasion = document.getElementById("occasion").value;
+            const weekendActivities = document.getElementById("weekend_activities").value;
+            const stores = document.getElementById("stores").value;
+            const priceRange = document.getElementById("price_range").value;
+
+            // Store URLs
+            const storeURLs = {
+                amazon: "https://www.amazon.com/s?k=",
+                walmart: "https://www.walmart.com/search/?query=",
+                target: "https://www.target.com/s?searchTerm=",
+            };
+
+            // Generate search query
+            //const searchQuery = `${recipient} ${occasion} gift ${gender} ${age} years ${weekendActivities} ${priceRange}`.replace(/\s+/g, "+"); 
+
+            const searchQuery = ` ${weekendActivities} ${priceRange}`.replace(/\s+/g, "+"); //added new
+            const selectedStoreURL = storeURLs[stores] ? storeURLs[stores] + searchQuery : "#";
+
+            // Open the store URL in a new tab
+            window.open(selectedStoreURL, "_blank");
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'home' %}">Home</a>
+            {% if user.is_authenticated %}
+                <span>Welcome, {{ user.username }}</span>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <section>
+        <h1>Gift Quiz</h1>
+
+        <!-- Add the "onsubmit" attribute to the form -->
+        <form onsubmit="openGiftURL(event)">
+            <label for="recipient">Who are you shopping for?</label>
+            <select name="recipient" id="recipient" required>
+                <option value="mom">Mom</option>
+                <option value="dad">Dad</option>
+                <option value="grandmother">Grandmother</option>
+                <option value="grandfather">Grandfather</option>
+                <option value="coworker">Co-worker</option>
+                <option value="fiance">Fiance</option>
+                <option value="friends">Friends</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="gender">What is their gender identity?</label>
+            <select name="gender" id="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="age">What is their age?</label>
+            <input type="number" name="age" id="age" required>
+
+            <label for="occasion">What is the occasion?</label>
+            <select name="occasion" id="occasion" required>
+                <option value="birthday">Birthday</option>
+                <option value="valentine">Valentine's Day</option>
+                <option value="holiday">Holiday</option>
+                <option value="anniversary">Anniversary</option>
+                <option value="other">Other</option>
+            </select>
+
+                <label for="weekend_activities">What do they do on weekends?</label>
+            <select name="weekend_activities" id="weekend_activities">
+                <option value="playing_games">Playing Games</option>
+                <option value="art_supplies">Working on an Art Project</option>
+                <option value="wood_working_tools">Wood Working</option>
+                <option value="gardening_tools">Gardening </option>
+                <option value="working_out">Working Out</option>
+                <option value="yoga_equipment">Yoga</option>
+                <option value="cardio_equipment">Cardio Equipment</option>
+                
+                <option value="board_games">Board Games</option>
+                <option value="Movie_Night_Basket">Watching Movies</option>
+                <option value="Fishing_Equipment">Fishing</option>
+                <option value="Woobles_Kit_A_Crocheting_Kit">Crocheting</option>
+                <option value="gift_card">Shopping</option>
+                <option value="hiking_equipment">Hiking</option>
+                <option value="better_sleeping_product">Sleeping</option>
+                <option value="travel_items">Vacation</option>
+                <option value="secret_santa_gift">Secret Santa Gifts</option>
+              
+            </select>
+
+            <label for="stores">Preferred stores (e.g., Amazon, Walmart, Target):</label>
+            <select name="stores" id="stores" required>
+                <option value="amazon">Amazon</option>
+                <option value="walmart">Walmart</option>
+                <option value="target">Target</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="price_range">What is your price range?</label>
+            <select name="price_range" id="price_range" required>
+                <option value="under 15 dollars">Under 15 dollars</option>
+                <option value="under 25 dollars">Under 25 dollars</option>
+                <option value="under 50 dollars">Under 50 dollars</option>
+                <option value="under 100 dollars">Under 100 dollars</option>
+                <option value="under 500 dollars">Under 500 dollars</option>
+            </select>
+
+            <button type="submit">Find Gift</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Find One. All rights reserved.</p>
+    </footer>
+</body>
+</html>
